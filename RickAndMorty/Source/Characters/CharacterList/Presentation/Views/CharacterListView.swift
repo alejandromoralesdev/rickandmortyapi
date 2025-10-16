@@ -7,7 +7,7 @@ struct CharacterListView: View {
         NavigationView {
             VStack {
                 if viewModel.isLoadingInitial {
-                    ProgressView("Cargando personajes...")
+                    ProgressView(L10n.Common.loadingCharacters)
                         .padding()
                 }
 
@@ -28,6 +28,7 @@ struct CharacterListView: View {
                                         .scaledToFill()
                                         .frame(width: 50, height: 50)
                                         .foregroundColor(.gray)
+                                        .clipShape(Circle())
                                 } else {
                                     // placeholder
                                     ProgressView()
@@ -69,7 +70,7 @@ struct CharacterListView: View {
                     Text(viewModel.errorMessage ?? "Ocurrió un error")
                 })
             }
-            .navigationTitle("Personajes de Rick & Morty")
+            .navigationTitle(L10n.Common.mainTitle)
         }
     }
 }
