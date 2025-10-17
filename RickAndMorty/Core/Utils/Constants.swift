@@ -36,4 +36,9 @@ enum Constants {
         static let page = "page"
         static let name = "name"
     }
+    
+    enum Character {
+        static let statusAlive = "alive"
+        static let statusDead = "dead"
+    }
 }

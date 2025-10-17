@@ -5,72 +5,41 @@ struct CharacterListView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                if viewModel.isLoadingInitial {
-                    ProgressView(L10n.Common.loadingCharacters)
-                        .padding()
-                }
-
-                List {
+            ScrollView {
+                LazyVStack {
                     ForEach(viewModel.characters) { character in
-                        HStack {
-                            AsyncImage(url: URL(string: character.image ?? "")) { phase in
-                                if let image = phase.image {
-                                    image
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 50, height: 50)
-                                        .clipShape(Circle())
-                                } else if phase.error != nil {
-                                    // imagen de error
-                                    Image(systemName: "photo")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 50, height: 50)
-                                        .foregroundColor(.gray)
-                                        .clipShape(Circle())
-                                } else {
-                                    // placeholder
-                                    ProgressView()
-                                        .frame(width: 50, height: 50)
+                        CharacterCardView(character: character)
+                            .onAppear {
+                                Task {
+                                    await viewModel.loadMoreIfNeeded(for: character)
                                 }
                             }
-
-                            Text(character.name ?? "")
-                                .font(.headline)
-                        }
-                        .onAppear {
-                            Task {
-                                await viewModel.loadMoreIfNeeded(for: character)
+                            .onTapGesture {
+                                // Navegar a detalle si quieres
                             }
-                        }
                     }
 
-                    // Footer de carga
-                    if viewModel.isLoadingPage {
-                        HStack {
-                            Spacer()
-                            ProgressView()
-                            Spacer()
-                        }
-                        .listRowSeparator(.hidden)
+                    if viewModel.isLoadingPage || viewModel.isLoadingInitial {
+                        ProgressView()
+                            .padding()
                     }
                 }
-                .listStyle(.plain)
-                .task {
-                    await viewModel.loadInitialCharacters()
-                }
-                .refreshable {
-                    // Opcional: permitir refresh pull-to-refresh
-                    await viewModel.loadInitialCharacters()
-                }
-                .alert("Error", isPresented: $viewModel.showError, actions: {
-                    Button("OK", role: .cancel) { viewModel.showError = false }
-                }, message: {
-                    Text(viewModel.errorMessage ?? "Ocurrió un error")
-                })
+                .padding(.vertical, 8)
+            }
+            .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
+            .task {
+                await viewModel.loadInitialCharacters()
+            }
+            .refreshable {
+                await viewModel.loadInitialCharacters()
             }
             .navigationTitle(L10n.Common.mainTitle)
+            .navigationBarTitleDisplayMode(.inline)
+            .alert(L10n.Errors.alertTitle, isPresented: $viewModel.showError, actions: {
+                Button(L10n.Errors.alertButton, role: .cancel) { viewModel.showError = false }
+            }, message: {
+                Text(viewModel.errorMessage ?? L10n.Errors.general)
+            })
         }
     }
 }
