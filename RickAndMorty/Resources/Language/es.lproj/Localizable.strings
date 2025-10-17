@@ -1,0 +1,20 @@
+// Commons
+"loading_characters" = "Cargando personajes...";
+"main_title" = "Personajes de Rick & Morty";
+
+// Characters
+"no_name" = "Desconocido";
+"no_location" = "Desconocida";
+"no_specie" = "N/A";
+"no_gender" = "N/A";
+"no_status" = "unknown";
+"origin_title" = "Origen";
+"last_location" = "Última ubicación";
+"name" = "Personaje";
+"status" = "Estado";
+"specie" = "Especie";
+
+// Errors
+"general_error_message" = "Ocurrió un error";
+"alert_title" = "Error";
+"alert_button" = "OK";

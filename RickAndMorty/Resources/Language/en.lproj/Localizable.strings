@@ -1,0 +1,20 @@
+// Commons
+"loading_characters" = "Character's loading...";
+"main_title" = "Rick & Morty Characters";
+
+// Characters
+"no_name" = "Unknown";
+"no_location" = "Unknown";
+"no_specie" = "N/A";
+"no_gender" = "N/A";
+"no_status" = "unknown";
+"origin_title" = "Origin";
+"last_location" = "Last Location";
+"name" = "Character";
+"status" = "Status";
+"specie" = "Specie";
+
+// Errors
+"general_error_message" = "An error has ocurred";
+"alert_title" = "Error";
+"alert_button" = "OK";
