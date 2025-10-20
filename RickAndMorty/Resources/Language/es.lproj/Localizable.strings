@@ -10,9 +10,14 @@
 "no_status" = "unknown";
 "origin_title" = "Origen";
 "last_location" = "Última ubicación";
-"name" = "Personaje";
+"name" = "Nombre";
+"character" = "Personaje";
 "status" = "Estado";
 "specie" = "Especie";
+"gender" = "Sexo";
+"type" = "Tipo";
+"created" = "Creado";
+"urlLabel" = "Enlace API";
 
 // Errors
 "general_error_message" = "Ocurrió un error";

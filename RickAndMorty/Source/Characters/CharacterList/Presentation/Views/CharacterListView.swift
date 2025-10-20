@@ -2,9 +2,10 @@ import SwiftUI
 
 struct CharacterListView: View {
     @StateObject var viewModel = CharacterListViewModel()
+    @State private var path = NavigationPath() // **NavigationPath** para navegación programática
 
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $path) { // **NavigationStack**
             ScrollView {
                 LazyVStack {
                     ForEach(viewModel.characters) { character in
@@ -15,7 +16,8 @@ struct CharacterListView: View {
                                 }
                             }
                             .onTapGesture {
-                                // Navegar a detalle si quieres
+                                // Navegación programática: añadimos el personaje a la path
+                                path.append(character)
                             }
                     }
 
@@ -40,6 +42,10 @@ struct CharacterListView: View {
             }, message: {
                 Text(viewModel.errorMessage ?? L10n.Errors.general)
             })
+            // Mapeo del tipo Character a la vista detalle
+            .navigationDestination(for: CharacterEntity.self) { character in
+                CharacterDetailView(character: character)
+            }
         }
     }
 }

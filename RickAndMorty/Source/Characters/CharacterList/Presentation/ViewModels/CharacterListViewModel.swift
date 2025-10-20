@@ -5,6 +5,7 @@ class CharacterListViewModel: ObservableObject {
     @Published var characters: [CharacterEntity] = []
     @Published var isLoadingInitial: Bool = false
     @Published var isLoadingPage: Bool = false
+    @Published var navigateToDetail: Bool = false
     @Published var errorMessage: String? = nil
     @Published var showError: Bool = false
 

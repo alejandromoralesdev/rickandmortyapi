@@ -3,10 +3,6 @@ import SwiftUI
 struct CharacterCardView: View {
     let character: CharacterEntity
 
-    // Ajusta estos valores para dar la proporción que quieras
-    static let rowHeight: CGFloat = 140
-    static let imageWidth: CGFloat = 120 // ancho "aceptable" para imagen vertical
-
     var body: some View {
         HStack(spacing: 12) {
             // Imagen que ocupa la altura completa de la card
@@ -15,17 +11,17 @@ struct CharacterCardView: View {
                     image
                         .resizable()
                         .scaledToFill()
-                        .frame(width: Self.imageWidth, height: Self.rowHeight)
+                        .frame(width: Constants.Sizes.imageWidth, height: Constants.Sizes.rowHeight)
                         .clipped()
                 } else if phase.error != nil {
                     VStack {
                         Image(systemName: "photo")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: Self.imageWidth * 0.5, height: Self.imageWidth * 0.5)
+                            .frame(width: Constants.Sizes.imageWidth * 0.5, height: Constants.Sizes.imageWidth * 0.5)
                             .foregroundColor(.gray)
                     }
-                    .frame(width: Self.imageWidth, height: Self.rowHeight)
+                    .frame(width: Constants.Sizes.imageWidth, height: Constants.Sizes.rowHeight)
                     .background(Color(white: 0.95))
                 } else {
                     // placeholder
@@ -33,11 +29,11 @@ struct CharacterCardView: View {
                         Color(white: 0.95)
                         ProgressView()
                     }
-                    .frame(width: Self.imageWidth, height: Self.rowHeight)
+                    .frame(width: Constants.Sizes.imageWidth, height: Constants.Sizes.rowHeight)
                 }
             }
             .cornerRadius(10)
-            .shadow(color: Color.black.opacity(0.06), radius: 3, x: 0, y: 1)
+            .shadow(color: Color.Main.backgroundCard.opacity(0.06), radius: 3, x: 0, y: 1)
 
             // Contenido textual
             VStack(alignment: .leading, spacing: 8) {
@@ -88,17 +84,17 @@ struct CharacterCardView: View {
 
                 Spacer()
             }
-            .frame(height: Self.rowHeight)
+            .frame(height: Constants.Sizes.rowHeight)
         }
         .padding(8)
         .background(
             RoundedRectangle(cornerRadius: 14, style: .continuous)
-                .fill(Color(UIColor.systemBackground))
+                .fill(Color.Main.backgroundCard)
                 .shadow(color: Color.black.opacity(0.04), radius: 6, x: 0, y: 2)
         )
         .padding(.horizontal, 8)
-        .frame(height: Self.rowHeight + 20) // espacio total (imagen + padding)
+        .frame(height: Constants.Sizes.rowHeight + 20) // espacio total (imagen + padding)
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(character.name ?? L10n.Character.name), \(L10n.Character.status) \(character.status ?? L10n.Character.unknownStatus), \(L10n.Character.specie) \(character.species ?? L10n.Character.unknownSpecie)")
+        .accessibilityLabel("\(character.name ?? L10n.Character.character), \(L10n.Character.status) \(character.status ?? L10n.Character.unknownStatus), \(L10n.Character.specie) \(character.species ?? L10n.Character.unknownSpecie)")
     }
 }
