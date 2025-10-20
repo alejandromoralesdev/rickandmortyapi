@@ -5,7 +5,7 @@
 //  Created by Alejandro Morales Cañete on 16/10/25.
 //
 
-struct CharacterEntity: Identifiable, Codable {
+struct CharacterEntity: Identifiable, Codable, Hashable {
     let id: Int
     let name: String?
     let status: String?

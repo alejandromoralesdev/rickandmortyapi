@@ -21,8 +21,18 @@ public enum L10n {
         public static let specie: String = "specie".localize(in: tableName, bundle: .main)
         /// Origin
         public static let origin: String = "origin_title".localize(in: tableName, bundle: .main)
+        /// Genre
+        public static let gender: String = "gender".localize(in: tableName, bundle: .main)
+        /// Type
+        public static let type: String = "type".localize(in: tableName, bundle: .main)
         /// Last Location
         public static let lastLocation: String = "last_location".localize(in: tableName, bundle: .main)
+        /// Created
+        public static let created: String = "created".localize(in: tableName, bundle: .main)
+        /// URL Label
+        public static let urlLabel: String = "urlLabel".localize(in: tableName, bundle: .main)
+        /// Character
+        public static let character: String = "character".localize(in: tableName, bundle: .main)
         /// Unknown Name
         public static let unknownName: String = "no_name".localize(in: tableName, bundle: .main)
         /// Unknown Location
