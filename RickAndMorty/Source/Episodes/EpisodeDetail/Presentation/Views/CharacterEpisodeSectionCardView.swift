@@ -1,26 +1,17 @@
-// CharacterCardView.swift
-// RickAndMorty
-// Adaptado para mostrar varias imágenes por fila manteniendo el nombre original de la clase
-
 import SwiftUI
 
-// --- Clase ORIGINAL (nombre preservado) ---
-// Ahora es reutilizable: acepta width/height opcionales (con valores por defecto para compatibilidad)
 struct CharacterEpisodeSectionCardView: View {
     let character: String
-    var width: CGFloat? = nil      // opcional: si se pasa, se usa para el frame; si no, se usan Constants
-    var height: CGFloat? = nil     // opcional
+    var width: CGFloat? = nil
+    var height: CGFloat? = nil
 
-    // Valores por defecto (usa tus constantes si las tienes)
     private var defaultImageWidth: CGFloat { Constants.Sizes.imageWidth }
     private var defaultRowHeight: CGFloat { Constants.Sizes.rowHeight }
 
     var body: some View {
-        // Valores de estilo
         let imageCornerRadius: CGFloat = 12
         let cardCornerRadius: CGFloat = 14
 
-        // Determinar dimensiones efectivas
         let effectiveWidth = width ?? defaultImageWidth
         let effectiveHeight = height ?? defaultRowHeight
 
@@ -40,7 +31,7 @@ struct CharacterEpisodeSectionCardView: View {
                     case .failure:
                         ZStack {
                             Color(white: 0.95)
-                            Image(systemName: "photo")
+                            Image.Errors.noPhoto
                                 .resizable()
                                 .scaledToFit()
                                 .foregroundColor(.gray)
@@ -65,33 +56,5 @@ struct CharacterEpisodeSectionCardView: View {
         )
         .clipShape(RoundedRectangle(cornerRadius: cardCornerRadius, style: .continuous))
         .accessibilityElement(children: .combine)
-    }
-}
-
-// --- Variante adaptativa (opcional): SwiftUI decide cuántas columnas caben) ---
-struct CharacterGridAdaptiveView: View {
-    let characters: [String]
-    let minimumItemWidth: CGFloat    // p.ej. 100 -> cabrán tantas columnas como entren
-    let spacing: CGFloat = 12
-    let rowHeight: CGFloat
-
-    init(characters: [String], minimumItemWidth: CGFloat = 100, rowHeight: CGFloat = Constants.Sizes.rowHeight) {
-        self.characters = characters
-        self.minimumItemWidth = minimumItemWidth
-        self.rowHeight = rowHeight
-    }
-
-    var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: minimumItemWidth), spacing: spacing)], spacing: spacing) {
-                ForEach(characters, id: \.self) { character in
-                    // width no se fija: SwiftUI asignará el ancho. Ponemos height fijo para controlar aspecto.
-                    CharacterEpisodeSectionCardView(character: character, width: 50, height: rowHeight)
-                        .frame(minHeight: rowHeight)
-                }
-            }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 8)
-        }
     }
 }

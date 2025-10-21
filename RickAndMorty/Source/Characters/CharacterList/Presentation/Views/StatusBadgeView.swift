@@ -1,10 +1,3 @@
-//
-//  StatusBadge.swift
-//  RickAndMorty
-//
-//  Created by Alejandro Morales Cañete on 17/10/25.
-//
-
 import SwiftUI
 
 struct StatusBadgeView: View {

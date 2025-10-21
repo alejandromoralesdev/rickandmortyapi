@@ -1,11 +1,3 @@
-//
-//  EpisodeEntity.swift
-//  RickAndMorty
-//
-//  Created by Alejandro Morales Cañete on 19/10/25.
-//
-
-
 struct EpisodeEntity: Identifiable, Codable, Hashable {
     let id: Int
     let name: String?

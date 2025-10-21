@@ -11,17 +11,25 @@ enum Constants {
     static let rickMortyApiImageBaseUrl: String = "https://rickandmortyapi.com/api/character/avatar/"
     static let extensionImageBaseUrl: String = ".jpeg"
     static let rickMortyApiTimeoutInterval: Double = 15.0
-    static let loading = "Cargando..."
     
     enum Endpoints {
         static let characterList = "character"
+        static let characterDetail = "character/"
         static let episodeDetail = "episode/"
         
+        /// Metodo que devuelve la URL para obtener la foto del personaje
+        /// - Parameter id: id del personaje
+        /// - Returns: la url de la foto
         static func getImageURL(id: String) -> URL? {
             let components = URLComponents(string: rickMortyApiImageBaseUrl + id + extensionImageBaseUrl)
             return components?.url
         }
         
+        /// Metodo para obtener todos los personajes
+        /// - Parameters:
+        ///   - page: pagina que queremos obtener
+        ///   - name: nombre del personaje que queremos obtener
+        /// - Returns: la url para consultar los personajes
         static func getCharactersURL(page: Int? = nil, name: String? = nil) -> URL? {
             var components = URLComponents(string: rickMortyApiBaseUrl + characterList)
             var queryItems: [URLQueryItem] = []
@@ -39,6 +47,17 @@ enum Constants {
             return components?.url
         }
         
+        /// Metodo para consultar el detalle de un personaje
+        /// - Parameter id: id del personaje
+        /// - Returns: detalle del personaje
+        static func getCharacterURL(id: Int) -> URL? {
+            let components = URLComponents(string: rickMortyApiBaseUrl + characterDetail + String(id))
+            return components?.url
+        }
+        
+        /// Metodo para consultar el detalle de un episodio
+        /// - Parameter id: id del episodio
+        /// - Returns: detalle del episodio
         static func getEpisodeURL(id: Int) -> URL? {
             let components = URLComponents(string: rickMortyApiBaseUrl + episodeDetail + String(id))
             return components?.url
