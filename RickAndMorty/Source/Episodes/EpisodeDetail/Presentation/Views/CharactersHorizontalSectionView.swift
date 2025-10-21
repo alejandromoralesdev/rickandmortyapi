@@ -26,7 +26,6 @@ struct CharactersHorizontalSectionView: View {
                         }
                         .buttonStyle(.plain)
                         .contentShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                        .accessibilityLabel(Text("String(format: L10n.Episode.accessibilityLabel, ep)"))
                         .padding(.vertical, 4)
                     }
                 }

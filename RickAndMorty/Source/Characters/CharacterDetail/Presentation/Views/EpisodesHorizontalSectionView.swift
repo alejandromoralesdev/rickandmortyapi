@@ -23,10 +23,10 @@ struct EpisodesHorizontalSectionView: View {
                 HStack {
                     Spacer()
                     VStack(spacing: 6) {
-                        Image(systemName: "film")
+                        Image.Errors.noEpisodes
                             .font(.system(size: 28))
                             .foregroundColor(.secondary)
-                        Text("L10n.Episode.noEpisodes")
+                        Text(L10n.Episodes.unknownEpisode)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -42,12 +42,11 @@ struct EpisodesHorizontalSectionView: View {
                                 generator.impactOccurred()
                                 onEpisodeTap?(ep)
                             }) {
-                                EpisodeCardView(numberText: ep, size: min(cardSize.width, cardSize.height))
+                                CharacterEpisodeCardView(numberText: ep, size: min(cardSize.width, cardSize.height))
                                     .frame(width: cardSize.width, height: cardSize.height)
                             }
                             .buttonStyle(.plain)
                             .contentShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                            .accessibilityLabel(Text("String(format: L10n.Episode.accessibilityLabel, ep)"))
                             .padding(.vertical, 4)
                         }
                     }

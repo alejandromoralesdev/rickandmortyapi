@@ -14,6 +14,7 @@ enum Constants {
     
     enum Endpoints {
         static let characterList = "character"
+        static let episodeList = "episode"
         static let characterDetail = "character/"
         static let episodeDetail = "episode/"
         
@@ -55,6 +56,28 @@ enum Constants {
             return components?.url
         }
         
+        /// Metodo para obtener todos los episodios
+        /// - Parameters:
+        ///   - page: pagina que queremos obtener
+        ///   - name: nombre del personaje que queremos obtener
+        /// - Returns: la url para consultar los episodios
+        static func getEpisodesURL(page: Int? = nil, name: String? = nil) -> URL? {
+            var components = URLComponents(string: rickMortyApiBaseUrl + episodeList)
+            var queryItems: [URLQueryItem] = []
+            
+            if let page = page {
+                queryItems.append(URLQueryItem(name: QueryItems.page, value: String(page)))
+            }
+            
+            if let name = name {
+                queryItems.append(URLQueryItem(name: QueryItems.name, value: name))
+            }
+            
+            components?.queryItems = queryItems.isEmpty ? nil : queryItems
+            
+            return components?.url
+        }
+        
         /// Metodo para consultar el detalle de un episodio
         /// - Parameter id: id del episodio
         /// - Returns: detalle del episodio
@@ -78,6 +101,7 @@ enum Constants {
         static let imageSize: CGFloat = 160
         static let cardCharactersSize: CGFloat = 140
         static let cardEpisodesSize: CGFloat = 80
+        static let cardEpisodesListSize: CGFloat = 40
         static let cornerRadius: CGFloat = 12
         static let episodesSpacing: CGFloat = 12
         static let rowHeight: CGFloat = 140

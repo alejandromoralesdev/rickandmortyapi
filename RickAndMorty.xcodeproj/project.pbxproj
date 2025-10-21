@@ -22,7 +22,7 @@
 		5D5310122EA459A500CFCF27 /* EpisodeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5310112EA4599F00CFCF27 /* EpisodeDetailViewModel.swift */; };
 		5D5310142EA45BA300CFCF27 /* EpisodeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5310132EA45BA300CFCF27 /* EpisodeDetailView.swift */; };
 		5D5BAE312EA4638000568B09 /* EpisodesHorizontalSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5BAE302EA4638000568B09 /* EpisodesHorizontalSectionView.swift */; };
-		5D5BAE332EA463D000568B09 /* EpisodeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5BAE322EA463D000568B09 /* EpisodeCardView.swift */; };
+		5D5BAE332EA463D000568B09 /* CharacterEpisodeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5BAE322EA463D000568B09 /* CharacterEpisodeCardView.swift */; };
 		5D5BAE352EA463F800568B09 /* CharacterMoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5BAE342EA463F800568B09 /* CharacterMoreInfoView.swift */; };
 		5D5BAE372EA464FE00568B09 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5BAE362EA464FC00568B09 /* Utils.swift */; };
 		5D84CF852EA0F78500D4D4E8 /* RickAndMortyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D84CF822EA0F78500D4D4E8 /* RickAndMortyUITests.swift */; };
@@ -49,6 +49,17 @@
 		5D870F622EA4725900F04CD3 /* CharactersHorizontalSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D870F612EA4724E00F04CD3 /* CharactersHorizontalSectionView.swift */; };
 		5D870F642EA4730700F04CD3 /* CharacterEpisodeSectionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D870F632EA4730700F04CD3 /* CharacterEpisodeSectionCardView.swift */; };
 		5DB11FFE2EA76E8000942875 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB11FFD2EA76E7B00942875 /* ImageExtension.swift */; };
+		5DB120032EA77DD300942875 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB120022EA77DD300942875 /* Info.swift */; };
+		5DB120052EA77DEC00942875 /* EpisodeListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB120042EA77DE400942875 /* EpisodeListResponseModel.swift */; };
+		5DB120092EA77E3700942875 /* EpisodeListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB120082EA77E3200942875 /* EpisodeListDataSource.swift */; };
+		5DB1200B2EA77EEC00942875 /* EpisodeListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1200A2EA77EDF00942875 /* EpisodeListRepository.swift */; };
+		5DB1200F2EA77F1E00942875 /* EpisodeListRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1200E2EA77F1400942875 /* EpisodeListRepositoryProtocol.swift */; };
+		5DB120122EA785C000942875 /* GetEpisodeListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB120112EA785B800942875 /* GetEpisodeListUseCase.swift */; };
+		5DB120172EA7863500942875 /* EpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB120162EA7862F00942875 /* EpisodeListView.swift */; };
+		5DB120192EA7865600942875 /* EpisodeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB120182EA7865000942875 /* EpisodeListViewModel.swift */; };
+		5DB1201D2EA788D200942875 /* EpisodeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1201C2EA788D200942875 /* EpisodeCardView.swift */; };
+		5DB1202A2EA7AC8900942875 /* FancyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB120292EA7AC8900942875 /* FancyButton.swift */; };
+		5DB1202C2EA7AE7400942875 /* PressableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB1202B2EA7AE7400942875 /* PressableButtonStyle.swift */; };
 		5DCA97FF2EA2771200D9D7FE /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCA97FE2EA2771200D9D7FE /* CharacterDetailView.swift */; };
 		5DCA98012EA2779B00D9D7FE /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCA98002EA2779300D9D7FE /* CharacterDetailViewModel.swift */; };
 		5DE95FF52EA6191300B4D662 /* EpisodeCharacterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE95FF42EA6190900B4D662 /* EpisodeCharacterEntity.swift */; };
@@ -94,7 +105,7 @@
 		5D5310112EA4599F00CFCF27 /* EpisodeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewModel.swift; sourceTree = "<group>"; };
 		5D5310132EA45BA300CFCF27 /* EpisodeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailView.swift; sourceTree = "<group>"; };
 		5D5BAE302EA4638000568B09 /* EpisodesHorizontalSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesHorizontalSectionView.swift; sourceTree = "<group>"; };
-		5D5BAE322EA463D000568B09 /* EpisodeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCardView.swift; sourceTree = "<group>"; };
+		5D5BAE322EA463D000568B09 /* CharacterEpisodeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEpisodeCardView.swift; sourceTree = "<group>"; };
 		5D5BAE342EA463F800568B09 /* CharacterMoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMoreInfoView.swift; sourceTree = "<group>"; };
 		5D5BAE362EA464FC00568B09 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		5D84CF822EA0F78500D4D4E8 /* RickAndMortyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyUITests.swift; sourceTree = "<group>"; };
@@ -122,6 +133,17 @@
 		5D870F612EA4724E00F04CD3 /* CharactersHorizontalSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersHorizontalSectionView.swift; sourceTree = "<group>"; };
 		5D870F632EA4730700F04CD3 /* CharacterEpisodeSectionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEpisodeSectionCardView.swift; sourceTree = "<group>"; };
 		5DB11FFD2EA76E7B00942875 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		5DB120022EA77DD300942875 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		5DB120042EA77DE400942875 /* EpisodeListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListResponseModel.swift; sourceTree = "<group>"; };
+		5DB120082EA77E3200942875 /* EpisodeListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListDataSource.swift; sourceTree = "<group>"; };
+		5DB1200A2EA77EDF00942875 /* EpisodeListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListRepository.swift; sourceTree = "<group>"; };
+		5DB1200E2EA77F1400942875 /* EpisodeListRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListRepositoryProtocol.swift; sourceTree = "<group>"; };
+		5DB120112EA785B800942875 /* GetEpisodeListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEpisodeListUseCase.swift; sourceTree = "<group>"; };
+		5DB120162EA7862F00942875 /* EpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListView.swift; sourceTree = "<group>"; };
+		5DB120182EA7865000942875 /* EpisodeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListViewModel.swift; sourceTree = "<group>"; };
+		5DB1201C2EA788D200942875 /* EpisodeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCardView.swift; sourceTree = "<group>"; };
+		5DB120292EA7AC8900942875 /* FancyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyButton.swift; sourceTree = "<group>"; };
+		5DB1202B2EA7AE7400942875 /* PressableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressableButtonStyle.swift; sourceTree = "<group>"; };
 		5DCA97FE2EA2771200D9D7FE /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		5DCA98002EA2779300D9D7FE /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
 		5DE95FF42EA6190900B4D662 /* EpisodeCharacterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCharacterEntity.swift; sourceTree = "<group>"; };
@@ -246,6 +268,7 @@
 		5D530FF82EA4543700CFCF27 /* Episodes */ = {
 			isa = PBXGroup;
 			children = (
+				5DB11FFF2EA77D8200942875 /* EpisodeList */,
 				5D530FFD2EA454AA00CFCF27 /* EpisodeDetail */,
 			);
 			path = Episodes;
@@ -318,7 +341,6 @@
 			isa = PBXGroup;
 			children = (
 				5DE95FF42EA6190900B4D662 /* EpisodeCharacterEntity.swift */,
-				5D5310032EA4550900CFCF27 /* EpisodeEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -408,6 +430,7 @@
 		5D84CF932EA0F7D700D4D4E8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5DB120022EA77DD300942875 /* Info.swift */,
 				5D5BAE362EA464FC00568B09 /* Utils.swift */,
 				5D84CFBE2EA10E7B00D4D4E8 /* NetworkUtils.swift */,
 				5D84CF9E2EA100DC00D4D4E8 /* Constants.swift */,
@@ -418,6 +441,7 @@
 		5D84CFA22EA1058700D4D4E8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5DB120272EA7AC7D00942875 /* UIComponents */,
 				5D530FF82EA4543700CFCF27 /* Episodes */,
 				5D84CFA32EA1059D00D4D4E8 /* Characters */,
 			);
@@ -559,6 +583,127 @@
 			path = Language;
 			sourceTree = "<group>";
 		};
+		5DB11FFF2EA77D8200942875 /* EpisodeList */ = {
+			isa = PBXGroup;
+			children = (
+				5DB120132EA7861000942875 /* Presentation */,
+				5DB1200C2EA77EFC00942875 /* Domain */,
+				5DB120002EA77D9200942875 /* Data */,
+			);
+			path = EpisodeList;
+			sourceTree = "<group>";
+		};
+		5DB120002EA77D9200942875 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5DB120072EA77E2A00942875 /* DataSource */,
+				5DB120062EA77E2000942875 /* Repositories */,
+				5DB120012EA77D9E00942875 /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5DB120012EA77D9E00942875 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5DB120042EA77DE400942875 /* EpisodeListResponseModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5DB120062EA77E2000942875 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				5DB1200A2EA77EDF00942875 /* EpisodeListRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		5DB120072EA77E2A00942875 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				5DB120082EA77E3200942875 /* EpisodeListDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		5DB1200C2EA77EFC00942875 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				5DB1201E2EA78C0000942875 /* Entities */,
+				5DB120102EA785AF00942875 /* UseCases */,
+				5DB1200D2EA77F0500942875 /* Repositories */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		5DB1200D2EA77F0500942875 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				5DB1200E2EA77F1400942875 /* EpisodeListRepositoryProtocol.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		5DB120102EA785AF00942875 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				5DB120112EA785B800942875 /* GetEpisodeListUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		5DB120132EA7861000942875 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				5DB120152EA7862300942875 /* ViewModels */,
+				5DB120142EA7861B00942875 /* Views */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		5DB120142EA7861B00942875 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5DB1201C2EA788D200942875 /* EpisodeCardView.swift */,
+				5DB120162EA7862F00942875 /* EpisodeListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5DB120152EA7862300942875 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5DB120182EA7865000942875 /* EpisodeListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5DB1201E2EA78C0000942875 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				5D5310032EA4550900CFCF27 /* EpisodeEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		5DB120272EA7AC7D00942875 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				5DB120282EA7AC8500942875 /* Buttons */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		5DB120282EA7AC8500942875 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				5DB1202B2EA7AE7400942875 /* PressableButtonStyle.swift */,
+				5DB120292EA7AC8900942875 /* FancyButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		5DCA97FA2EA276BF00D9D7FE /* CharacterDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,7 +728,7 @@
 			children = (
 				5DE960032EA6627F00B4D662 /* CharacterHeaderView.swift */,
 				5D5BAE342EA463F800568B09 /* CharacterMoreInfoView.swift */,
-				5D5BAE322EA463D000568B09 /* EpisodeCardView.swift */,
+				5D5BAE322EA463D000568B09 /* CharacterEpisodeCardView.swift */,
 				5D5BAE302EA4638000568B09 /* EpisodesHorizontalSectionView.swift */,
 				5DCA97FE2EA2771200D9D7FE /* CharacterDetailView.swift */,
 			);
@@ -748,32 +893,41 @@
 				5D870F642EA4730700F04CD3 /* CharacterEpisodeSectionCardView.swift in Sources */,
 				5DE960042EA6627F00B4D662 /* CharacterHeaderView.swift in Sources */,
 				5DE960022EA6251500B4D662 /* ColorExtension.swift in Sources */,
+				5DB120192EA7865600942875 /* EpisodeListViewModel.swift in Sources */,
 				5D530FFF2EA454C800CFCF27 /* EpisodeDetailResponseModel.swift in Sources */,
 				5D44F2662EA69BCC00A59398 /* CharacterDetailRepositoryProtocol.swift in Sources */,
 				5D2E35F82EA1532C00B2632F /* CharacterCardView.swift in Sources */,
+				5DB120092EA77E3700942875 /* EpisodeListDataSource.swift in Sources */,
 				5D84CF972EA0F81600D4D4E8 /* CharacterEntity.swift in Sources */,
 				5D84CFC22EA10F3300D4D4E8 /* LoggerExtension.swift in Sources */,
 				5DB11FFE2EA76E8000942875 /* ImageExtension.swift in Sources */,
 				5D53100A2EA457A200CFCF27 /* EpisodeDetailRepository.swift in Sources */,
 				5D5310042EA4550900CFCF27 /* EpisodeEntity.swift in Sources */,
 				5DCA97FF2EA2771200D9D7FE /* CharacterDetailView.swift in Sources */,
+				5DB1200F2EA77F1E00942875 /* EpisodeListRepositoryProtocol.swift in Sources */,
 				5D44F2682EA69C9000A59398 /* GetCharacterDetailUseCase.swift in Sources */,
 				5D84CF8F2EA0F78500D4D4E8 /* ContentView.swift in Sources */,
 				5D84CF992EA0FBAF00D4D4E8 /* LocationCharacterEntity.swift in Sources */,
 				5D84CFBF2EA10E7B00D4D4E8 /* NetworkUtils.swift in Sources */,
 				5D44F2642EA69A0100A59398 /* CharacterDetailDataSource.swift in Sources */,
+				5DB120122EA785C000942875 /* GetEpisodeListUseCase.swift in Sources */,
+				5DB1202A2EA7AC8900942875 /* FancyButton.swift in Sources */,
 				5D84CF9F2EA100DF00D4D4E8 /* Constants.swift in Sources */,
 				5D84CFC42EA10FFD00D4D4E8 /* CharacterListDataSource.swift in Sources */,
 				5D84CFC62EA1117300D4D4E8 /* CharacterListRepository.swift in Sources */,
+				5DB120052EA77DEC00942875 /* EpisodeListResponseModel.swift in Sources */,
 				5D84CFCE2EA1140A00D4D4E8 /* GetCharacterListUseCase.swift in Sources */,
+				5DB120032EA77DD300942875 /* Info.swift in Sources */,
 				5DE960092EA6645900B4D662 /* StatusBadgeView.swift in Sources */,
 				5D5310122EA459A500CFCF27 /* EpisodeDetailViewModel.swift in Sources */,
 				5D84CFCC2EA111E600D4D4E8 /* CharacterListRepositoryProtocol.swift in Sources */,
 				5D5BAE352EA463F800568B09 /* CharacterMoreInfoView.swift in Sources */,
 				5D5310142EA45BA300CFCF27 /* EpisodeDetailView.swift in Sources */,
-				5D5BAE332EA463D000568B09 /* EpisodeCardView.swift in Sources */,
+				5D5BAE332EA463D000568B09 /* CharacterEpisodeCardView.swift in Sources */,
 				5D5310082EA455FB00CFCF27 /* EpisodeDetailDataSource.swift in Sources */,
+				5DB1200B2EA77EEC00942875 /* EpisodeListRepository.swift in Sources */,
 				5D53100C2EA4583700CFCF27 /* EpisodeDetailRepositoryProtocol.swift in Sources */,
+				5DB1201D2EA788D200942875 /* EpisodeCardView.swift in Sources */,
 				5D84CFD52EA1189400D4D4E8 /* CharacterListViewModel.swift in Sources */,
 				5D5BAE372EA464FE00568B09 /* Utils.swift in Sources */,
 				5DE95FF52EA6191300B4D662 /* EpisodeCharacterEntity.swift in Sources */,
@@ -781,6 +935,7 @@
 				5D44F2622EA699E700A59398 /* CharacterDetailRepository.swift in Sources */,
 				5D84CFA12EA1044000D4D4E8 /* CharacterListResponseModel.swift in Sources */,
 				5D870F622EA4725900F04CD3 /* CharactersHorizontalSectionView.swift in Sources */,
+				5DB120172EA7863500942875 /* EpisodeListView.swift in Sources */,
 				5D53100E2EA4591F00CFCF27 /* GetEpisodeDetailUseCase.swift in Sources */,
 				5D84CF902EA0F78500D4D4E8 /* RickAndMortyApp.swift in Sources */,
 				5DCA98012EA2779B00D9D7FE /* CharacterDetailViewModel.swift in Sources */,
@@ -788,6 +943,7 @@
 				5D84D0142EA148B000D4D4E8 /* LocalizedUtils.swift in Sources */,
 				5D84D0152EA148B000D4D4E8 /* L10n.swift in Sources */,
 				5D5BAE312EA4638000568B09 /* EpisodesHorizontalSectionView.swift in Sources */,
+				5DB1202C2EA7AE7400942875 /* PressableButtonStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
