@@ -5,7 +5,6 @@ enum Destination: Hashable {
     case episodes
 }
 
-// 2) ContentView raíz con NavigationStack y NavigationPath compartido
 struct ContentView: View {
     @State private var path = NavigationPath()
     
@@ -56,17 +55,14 @@ struct ContentView: View {
                 }
                 .padding(.vertical, 40)
             }
-            // 3) Destinos para el enum y para CharacterEntity (si se va a appendear)
             .navigationDestination(for: Destination.self) { route in
                 switch route {
                 case .characters:
-                    // Pasamos el binding del path para que la lista pueda appendear detalles
                     CharacterListView(path: $path)
                 case .episodes:
                     EpisodeListView(path: $path)
                 }
             }
-            // 4) Si vas a appendear CharacterEntity directamente, registra su destino aquí
             .navigationDestination(for: CharacterEntity.self) { character in
                 CharacterDetailView(character: character)
             }

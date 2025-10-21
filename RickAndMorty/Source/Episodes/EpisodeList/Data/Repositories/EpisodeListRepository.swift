@@ -1,5 +1,4 @@
 
-
 class EpisodeListRepository: EpisodeListRepositoryProtocol {
 
     private let episodeListDataSource: EpisodeListDataSourceProtocol

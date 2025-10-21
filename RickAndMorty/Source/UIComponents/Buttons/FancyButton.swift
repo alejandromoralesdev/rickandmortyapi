@@ -1,6 +1,5 @@
 import SwiftUI
 
-// Botón reutilizable y estilizado
 struct FancyButton: View {
     var title: String
     var subtitle: String? = nil
@@ -10,7 +9,6 @@ struct FancyButton: View {
 
     var body: some View {
         Button(action: {
-            // Haptic feedback
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
             action()
@@ -42,8 +40,7 @@ struct FancyButton: View {
 
                 Spacer()
 
-                // Chevron secundario
-                Image(systemName: "chevron.right")
+                Image.Buttons.rightIcon
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(Color.white.opacity(0.9))
             }
@@ -51,16 +48,13 @@ struct FancyButton: View {
             .padding(.horizontal, 18)
             .background(
                 ZStack {
-                    // Gradiente principal
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
                         .fill(gradient)
 
-                    // Sutileza brillante en la parte superior
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
                         .stroke(Color.white.opacity(0.08), lineWidth: 1)
                         .blendMode(.overlay)
 
-                    // Destello sutil
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
                         .fill(LinearGradient(colors: [Color.white.opacity(0.06), Color.clear],
                                              startPoint: .topLeading,
@@ -75,9 +69,5 @@ struct FancyButton: View {
             .shadow(color: Color.black.opacity(0.28), radius: 10, x: 0, y: 8)
         }
         .buttonStyle(PressableButtonStyle())
-        // Accesibilidad
-        .accessibilityElement()
-        .accessibilityLabel(title + (subtitle != nil ? ", \(subtitle!)" : ""))
-        .accessibilityAddTraits(.isButton)
     }
 }

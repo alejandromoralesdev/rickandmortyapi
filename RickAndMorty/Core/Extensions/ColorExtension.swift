@@ -1,10 +1,3 @@
-//
-//  Colors.swift
-//  RickAndMorty
-//
-//  Created by Alejandro Morales Cañete on 20/10/25.
-//
-
 import SwiftUI
 
 // swiftlint:disable nesting

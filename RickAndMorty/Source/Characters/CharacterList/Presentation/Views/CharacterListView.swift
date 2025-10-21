@@ -2,7 +2,6 @@ import SwiftUI
 
 struct CharacterListView: View {
     @StateObject var viewModel = CharacterListViewModel()
-    // Recibimos el path compartido del padre
     @Binding var path: NavigationPath
 
     var body: some View {
@@ -14,7 +13,6 @@ struct CharacterListView: View {
                             Task { await viewModel.loadMoreIfNeeded(for: character) }
                         }
                         .onTapGesture {
-                            // usamos el path compartido para navegar a detalle
                             path.append(character)
                         }
                 }

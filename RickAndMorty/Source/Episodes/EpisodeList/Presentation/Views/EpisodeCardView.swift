@@ -7,10 +7,8 @@ struct EpisodeCardView: View {
     let size: CGFloat
 
     var body: some View {
-        // usar alineación vertical .top para que la imagen quede alineada con la parte superior del contenido
         HStack(alignment: .top, spacing: 12) {
 
-            // ZStack con tamaño fijo (constante)
             ZStack {
                 RoundedRectangle(cornerRadius: 12, style: .continuous)
                     .fill(Utils.backgroundGradient(colorScheme: colorScheme))
@@ -18,21 +16,17 @@ struct EpisodeCardView: View {
                             radius: 8, x: 0, y: 4)
 
                 Text("\(episode.id)")
-                    // usar el tamaño derivado del tamaño fijo de la tarjeta para mantener consistencia
                     .font(.system(size: Constants.Sizes.cardEpisodesSize * 0.48, weight: .black, design: .rounded))
                     .foregroundColor(Color.Main.episodeCardText)
                     .lineLimit(1)
                     .minimumScaleFactor(0.1)
                     .allowsHitTesting(false)
             }
-            // fijar tamaño exacto para que no cambie por el texto
             .frame(width: Constants.Sizes.imageWidth, height: Constants.Sizes.rowHeight)
             .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-            .fixedSize() // opcional, refuerza que no se comprima o expanda
+            .fixedSize()
             .accessibilityElement()
-            .accessibilityLabel(Text("String(format: L10n.Episode.accessibilityLabel, numberText)"))
 
-            // Contenido textual alineado a la izquierda
             VStack(alignment: .leading, spacing: 8) {
                 Spacer()
                 Text(episode.name ?? L10n.Character.unknownName)
@@ -59,7 +53,6 @@ struct EpisodeCardView: View {
             .frame(height: Constants.Sizes.rowHeight)
         }
         .padding(8)
-        // ocupar todo el ancho disponible y alinear el contenido al leading (izquierda)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
             RoundedRectangle(cornerRadius: 14, style: .continuous)

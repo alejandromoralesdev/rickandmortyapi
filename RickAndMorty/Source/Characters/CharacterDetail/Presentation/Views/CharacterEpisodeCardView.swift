@@ -22,6 +22,5 @@ struct CharacterEpisodeCardView: View {
         }
         .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
         .accessibilityElement()
-        .accessibilityLabel(Text("String(format: L10n.Episode.accessibilityLabel, numberText)"))
     }
 }

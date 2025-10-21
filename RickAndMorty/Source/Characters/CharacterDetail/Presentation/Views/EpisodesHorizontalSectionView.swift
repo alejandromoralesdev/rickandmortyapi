@@ -26,7 +26,7 @@ struct EpisodesHorizontalSectionView: View {
                         Image.Errors.noEpisodes
                             .font(.system(size: 28))
                             .foregroundColor(.secondary)
-                        Text("L10n.Episode.noEpisodes")
+                        Text(L10n.Episodes.unknownEpisode)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -47,7 +47,6 @@ struct EpisodesHorizontalSectionView: View {
                             }
                             .buttonStyle(.plain)
                             .contentShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                            .accessibilityLabel(Text("String(format: L10n.Episode.accessibilityLabel, ep)"))
                             .padding(.vertical, 4)
                         }
                     }

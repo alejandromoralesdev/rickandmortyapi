@@ -48,7 +48,6 @@ struct CharacterMoreInfoView: View {
                         .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
-                .accessibilityLabel(Text("Abrir \(label)"))
             } else if let nonEmpty = value?.trimmingCharacters(in: .whitespacesAndNewlines), !nonEmpty.isEmpty {
                 Button(action: {
                     UIPasteboard.general.string = nonEmpty
@@ -71,7 +70,6 @@ struct CharacterMoreInfoView: View {
                         .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
-                .accessibilityLabel(Text("Copiar \(label)"))
             }
         }
         .padding(.vertical, 10)

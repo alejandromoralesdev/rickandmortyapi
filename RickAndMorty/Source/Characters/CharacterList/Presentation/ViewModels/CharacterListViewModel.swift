@@ -31,7 +31,6 @@ class CharacterListViewModel: ObservableObject {
 
     func loadMoreIfNeeded(for character: CharacterEntity, prefetchOffset: Int = 3) async {
         guard !isLoadingPage else { return }
-        guard let last = characters.last else { return }
 
         if let idx = characters.firstIndex(where: { $0.id == character.id }) {
             let thresholdIndex = max(0, characters.count - 1 - prefetchOffset)

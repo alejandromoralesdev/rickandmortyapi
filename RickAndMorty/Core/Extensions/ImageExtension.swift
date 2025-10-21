@@ -10,6 +10,10 @@ extension Image {
         public static let safari = Image(systemName: "safari")
     }
     
+    public enum Buttons {
+        public static let rightIcon = Image(systemName: "chevron.right")
+    }
+    
     public enum Errors {
         public static let noPhoto = Image(systemName: "photo")
         public static let noEpisodes = Image(systemName: "film")
