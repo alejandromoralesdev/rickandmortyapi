@@ -53,4 +53,16 @@ class Utils {
             .overlay(Circle().stroke(Color.black.opacity(0.06), lineWidth: 0.5))
             .accessibilityHidden(true)
     }
+    
+    public static func accentColor(colorScheme: ColorScheme ) -> Color {
+        colorScheme == .dark ? .yellow : .blue
+    }
+
+    public static func backgroundGradient(colorScheme: ColorScheme) -> LinearGradient {
+        if colorScheme == .dark {
+            return LinearGradient(colors: [Color.blue.opacity(0.20), Color.purple.opacity(0.14)], startPoint: .topLeading, endPoint: .bottomTrailing)
+        } else {
+            return LinearGradient(colors: [Color.blue.opacity(0.96), Color.purple.opacity(0.86)], startPoint: .topLeading, endPoint: .bottomTrailing)
+        }
+    }
 }

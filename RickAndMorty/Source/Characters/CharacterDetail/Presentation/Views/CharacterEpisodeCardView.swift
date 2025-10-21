@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct EpisodeCardView: View {
+struct CharacterEpisodeCardView: View {
     let numberText: String
     let size: CGFloat
 
@@ -9,7 +9,7 @@ struct EpisodeCardView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(backgroundGradient)
+                .fill(Utils.backgroundGradient(colorScheme: colorScheme))
                 .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.12 : 0.06),
                         radius: 8, x: 0, y: 4)
 
@@ -23,18 +23,5 @@ struct EpisodeCardView: View {
         .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
         .accessibilityElement()
         .accessibilityLabel(Text("String(format: L10n.Episode.accessibilityLabel, numberText)"))
-    }
-
-    // MARK: - Helpers
-    private var accentColor: Color {
-        colorScheme == .dark ? .yellow : .blue
-    }
-
-    private var backgroundGradient: LinearGradient {
-        if colorScheme == .dark {
-            return LinearGradient(colors: [Color.blue.opacity(0.20), Color.purple.opacity(0.14)], startPoint: .topLeading, endPoint: .bottomTrailing)
-        } else {
-            return LinearGradient(colors: [Color.blue.opacity(0.96), Color.purple.opacity(0.86)], startPoint: .topLeading, endPoint: .bottomTrailing)
-        }
     }
 }

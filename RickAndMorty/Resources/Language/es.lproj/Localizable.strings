@@ -1,8 +1,12 @@
 // Commons
 "loading_characters" = "Cargando personajes...";
-"main_title" = "Personajes de Rick & Morty";
+"main_title" = "Rick & Morty";
 "characters" = "Personajes";
 "episodes" = "Episodios";
+"characterList" = "Todos los personajes";
+"episodeList" = "Todos los episodios";
+"welcome" = "Bienvenido";
+"choose" = "Elige una opción";
 
 // Characters
 "no_name" = "Desconocido";
@@ -20,10 +24,13 @@
 "type" = "Tipo";
 "created" = "Creado";
 "urlLabel" = "Enlace API";
-"coppied" = "Copiado";
+"copied" = "Copiado";
 
 // Episodes
 "title_ep" = "Episodio";
+"no_episode" = "Episodio Desconocido";
+"air_date" = "Fecha de emisión";
+
 
 // Errors
 "general_error_message" = "Ocurrió un error";

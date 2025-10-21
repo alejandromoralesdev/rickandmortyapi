@@ -15,7 +15,15 @@ public enum L10n {
         /// Episodes
         public static let episodes: String = "episodes".localize(in: tableName, bundle: .main)
         /// Coppied
-        public static let coppied: String = "coppied".localize(in: tableName, bundle: .main)
+        public static let copied: String = "copied".localize(in: tableName, bundle: .main)
+        /// All Characters
+        public static let allCharacters: String = "characterList".localize(in: tableName, bundle: .main)
+        /// All Episodes
+        public static let allEpisodes: String = "episodeList".localize(in: tableName, bundle: .main)
+        /// Welcome
+        public static let welcome: String = "welcome".localize(in: tableName, bundle: .main)
+        /// Choose an option
+        public static let choose: String = "choose".localize(in: tableName, bundle: .main)
     }
     
     public enum Character {
@@ -54,6 +62,10 @@ public enum L10n {
     public enum Episodes {
         /// Episode Title
         public static let title: String = "title_ep".localize(in: tableName, bundle: .main)
+        /// Air Date
+        public static let airDate: String = "air_date".localize(in: tableName, bundle: .main)
+        /// Unknown Episode
+        public static let unknownEpisode: String = "no_episode".localize(in: tableName, bundle: .main)
     }
     
     public enum Errors {

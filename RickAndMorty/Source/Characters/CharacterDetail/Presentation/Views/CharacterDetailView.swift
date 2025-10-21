@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CharacterDetailView: View {
     @StateObject private var viewModel: CharacterDetailViewModel
-    @State private var selectedEpisode: EpisodeEntity?
+    @State private var selectedEpisode: EpisodeCharacterEntity?
 
     public init(character: CharacterEntity?, characterId: Int? = nil) {
         self._viewModel = StateObject(
@@ -55,7 +55,7 @@ struct CharacterDetailView: View {
                     cardSize: CGSize(width: Constants.Sizes.cardEpisodesSize, height: Constants.Sizes.cardEpisodesSize),
                     spacing: Constants.Sizes.episodesSpacing
                 ) { epId in
-                    selectedEpisode = EpisodeEntity(id: Int(epId) ?? 0)
+                    selectedEpisode = EpisodeCharacterEntity(id: Int(epId) ?? 0, name: "")
                 }
                 .padding(.top, 8)
 
@@ -69,7 +69,7 @@ struct CharacterDetailView: View {
         .navigationTitle(viewModel.character?.name ?? L10n.Character.unknownName)
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(item: $selectedEpisode) { episode in
-            EpisodeDetailView(episode: episode.id)
+            EpisodeDetailView(episodeId: episode.id, episode: nil)
         }
     }
 }

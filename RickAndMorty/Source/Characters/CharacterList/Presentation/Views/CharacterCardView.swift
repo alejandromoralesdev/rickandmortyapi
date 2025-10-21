@@ -14,7 +14,7 @@ struct CharacterCardView: View {
                         .clipped()
                 } else if phase.error != nil {
                     VStack {
-                        Image(systemName: "photo")
+                        Image.Errors.noPhoto
                             .resizable()
                             .scaledToFit()
                             .frame(width: Constants.Sizes.imageWidth * 0.5, height: Constants.Sizes.imageWidth * 0.5)

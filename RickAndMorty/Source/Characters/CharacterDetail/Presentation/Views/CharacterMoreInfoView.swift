@@ -84,7 +84,7 @@ struct CharacterMoreInfoView: View {
         )
         .overlay(alignment: .topTrailing, content: {
             if showCopiedToast {
-                Text(L10n.Common.coppied)
+                Text(L10n.Common.copied)
                     .font(.caption)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 6)

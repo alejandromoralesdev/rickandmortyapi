@@ -3,6 +3,10 @@
 "main_title" = "Rick & Morty Characters";
 "characters" = "Characters";
 "episodes" = "Episodes";
+"characterList" = "All Characterss";
+"episodeList" = "All Episodes";
+"welcome" = "Welcome";
+"choose" = "Choose an option";
 
 // Characters
 "no_name" = "Unknown";
@@ -20,10 +24,12 @@
 "type" = "Tipo";
 "created" = "Created";
 "urlLabel" = "API Link";
-"coppied" = "Coppied";
+"copied" = "Copied";
 
 // Episodes
 "title_ep" = "Episode";
+"no_episode" = "Unknown Episode";
+"air_date" = "Air Date";
 
 // Errors
 "general_error_message" = "An error has ocurred";

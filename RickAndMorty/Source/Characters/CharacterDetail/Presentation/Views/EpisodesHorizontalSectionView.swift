@@ -23,7 +23,7 @@ struct EpisodesHorizontalSectionView: View {
                 HStack {
                     Spacer()
                     VStack(spacing: 6) {
-                        Image(systemName: "film")
+                        Image.Errors.noEpisodes
                             .font(.system(size: 28))
                             .foregroundColor(.secondary)
                         Text("L10n.Episode.noEpisodes")
@@ -42,7 +42,7 @@ struct EpisodesHorizontalSectionView: View {
                                 generator.impactOccurred()
                                 onEpisodeTap?(ep)
                             }) {
-                                EpisodeCardView(numberText: ep, size: min(cardSize.width, cardSize.height))
+                                CharacterEpisodeCardView(numberText: ep, size: min(cardSize.width, cardSize.height))
                                     .frame(width: cardSize.width, height: cardSize.height)
                             }
                             .buttonStyle(.plain)
