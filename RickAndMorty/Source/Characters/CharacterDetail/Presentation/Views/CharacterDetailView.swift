@@ -2,42 +2,42 @@ import SwiftUI
 
 struct CharacterDetailView: View {
     @StateObject private var viewModel: CharacterDetailViewModel
-
-    // Selección para navegación hacia EpisodeDetailView
     @State private var selectedEpisode: EpisodeEntity?
 
-    public init(character: CharacterEntity) {
+    public init(character: CharacterEntity?, characterId: Int? = nil) {
         self._viewModel = StateObject(
-            wrappedValue: CharacterDetailViewModel(character: character)
+            wrappedValue: CharacterDetailViewModel(
+                character: character,
+                characterId: characterId
+            )
         )
     }
 
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                // Header visual renovado
                 CharacterHeaderView(character: viewModel.character)
                     .padding(.horizontal)
                     .padding(.top)
 
-                // Card de información principal (uso tus CharacterMoreInfoView)
                 VStack(spacing: 8) {
-                    // Agrupamos las filas dentro de una card con fondo semitransparente/blur
                     VStack(spacing: 0) {
                         Group {
-                            CharacterMoreInfoView(label: L10n.Character.specie, value: viewModel.character.species)
+                            CharacterMoreInfoView(label: L10n.Character.specie, value: viewModel.character?.species)
                             Divider().padding(.horizontal)
-                            CharacterMoreInfoView(label: L10n.Character.type, value: Utils.nonEmpty(viewModel.character.type))
+                            if let type = viewModel.character?.type, !type.isEmpty {
+                                CharacterMoreInfoView(label: L10n.Character.type, value: type)
+                                Divider().padding(.horizontal)
+                            }
+                            CharacterMoreInfoView(label: L10n.Character.gender, value: viewModel.character?.gender)
                             Divider().padding(.horizontal)
-                            CharacterMoreInfoView(label: L10n.Character.gender, value: viewModel.character.gender)
+                            CharacterMoreInfoView(label: L10n.Character.origin, value: viewModel.character?.origin?.name)
                             Divider().padding(.horizontal)
-                            CharacterMoreInfoView(label: L10n.Character.origin, value: viewModel.character.origin?.name)
+                            CharacterMoreInfoView(label: L10n.Character.lastLocation, value: viewModel.character?.location?.name)
                             Divider().padding(.horizontal)
-                            CharacterMoreInfoView(label: L10n.Character.lastLocation, value: viewModel.character.location?.name)
+                            CharacterMoreInfoView(label: L10n.Character.created, value: Utils.formattedDate(from: viewModel.character?.created))
                             Divider().padding(.horizontal)
-                            CharacterMoreInfoView(label: L10n.Character.created, value: Utils.formattedDate(from: viewModel.character.created))
-                            Divider().padding(.horizontal)
-                            if let urlString = viewModel.character.url, let url = URL(string: urlString) {
+                            if let urlString = viewModel.character?.url, let url = URL(string: urlString) {
                                 Link(destination: url) {
                                     CharacterMoreInfoView(label: L10n.Character.urlLabel, value: url.host ?? url.absoluteString, isLink: true)
                                 }
@@ -50,9 +50,8 @@ struct CharacterDetailView: View {
                 }
                 .padding(.horizontal)
 
-                // Sección de episodios (mantengo tu EpisodesHorizontalSectionView)
                 EpisodesHorizontalSectionView(
-                    episodes: viewModel.character.episode,
+                    episodes: viewModel.character?.episode ?? [],
                     cardSize: CGSize(width: Constants.Sizes.cardEpisodesSize, height: Constants.Sizes.cardEpisodesSize),
                     spacing: Constants.Sizes.episodesSpacing
                 ) { epId in
@@ -64,7 +63,10 @@ struct CharacterDetailView: View {
             }
             .padding(.bottom)
         }
-        .navigationTitle(viewModel.character.name ?? L10n.Character.unknownName)
+        .task {
+            await viewModel.loadCharacterDetail()
+        }
+        .navigationTitle(viewModel.character?.name ?? L10n.Character.unknownName)
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(item: $selectedEpisode) { episode in
             EpisodeDetailView(episode: episode.id)

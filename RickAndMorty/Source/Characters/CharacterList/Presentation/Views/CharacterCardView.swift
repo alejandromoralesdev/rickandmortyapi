@@ -5,7 +5,6 @@ struct CharacterCardView: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            // Imagen que ocupa la altura completa de la card
             AsyncImage(url: URL(string: character.image ?? "")) { phase in
                 if let image = phase.image {
                     image
@@ -35,7 +34,6 @@ struct CharacterCardView: View {
             .cornerRadius(10)
             .shadow(color: Color.Main.backgroundCard.opacity(0.06), radius: 3, x: 0, y: 1)
 
-            // Contenido textual
             VStack(alignment: .leading, spacing: 8) {
                 HStack(alignment: .top) {
                     Text(character.name ?? L10n.Character.unknownName)
@@ -48,7 +46,6 @@ struct CharacterCardView: View {
                     StatusBadgeView(status: character.status ?? L10n.Character.unknownStatus)
                 }
 
-                // especie - genero
                 HStack(spacing: 8) {
                     Text(character.species ?? L10n.Character.unknownSpecie)
                         .font(.subheadline)
@@ -60,7 +57,6 @@ struct CharacterCardView: View {
                         .foregroundColor(.secondary)
                 }
 
-                // Origen
                 VStack(alignment: .leading, spacing: 2) {
                     Text(L10n.Character.origin)
                         .font(.caption)
@@ -71,7 +67,6 @@ struct CharacterCardView: View {
                         .lineLimit(1)
                 }
 
-                // Última ubicación
                 VStack(alignment: .leading, spacing: 2) {
                     Text(L10n.Character.lastLocation)
                         .font(.caption)
@@ -93,7 +88,7 @@ struct CharacterCardView: View {
                 .shadow(color: Color.black.opacity(0.04), radius: 6, x: 0, y: 2)
         )
         .padding(.horizontal, 8)
-        .frame(height: Constants.Sizes.rowHeight + 20) // espacio total (imagen + padding)
+        .frame(height: Constants.Sizes.rowHeight + 20)
         .accessibilityElement(children: .combine)
         .accessibilityLabel("\(character.name ?? L10n.Character.character), \(L10n.Character.status) \(character.status ?? L10n.Character.unknownStatus), \(L10n.Character.specie) \(character.species ?? L10n.Character.unknownSpecie)")
     }

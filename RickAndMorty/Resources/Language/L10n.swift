@@ -10,6 +10,12 @@ public enum L10n {
         public static let loadingCharacters: String = "loading_characters".localize(in: tableName, bundle: .main)
         /// Navigation Title
         public static let mainTitle: String = "main_title".localize(in: tableName, bundle: .main)
+        /// Characters
+        public static let characters: String = "characters".localize(in: tableName, bundle: .main)
+        /// Episodes
+        public static let episodes: String = "episodes".localize(in: tableName, bundle: .main)
+        /// Coppied
+        public static let coppied: String = "coppied".localize(in: tableName, bundle: .main)
     }
     
     public enum Character {
@@ -45,11 +51,17 @@ public enum L10n {
         public static let unknownStatus: String = "no_status".localize(in: tableName, bundle: .main)
     }
     
+    public enum Episodes {
+        /// Episode Title
+        public static let title: String = "title_ep".localize(in: tableName, bundle: .main)
+    }
+    
     public enum Errors {
         /// General Error
         public static let general: String = "general_error_message".localize(in: tableName, bundle: .main)
         /// Alert Title
         public static let alertTitle: String = "alert_title".localize(in: tableName, bundle: .main)
+        /// Alert Button Name
         public static let alertButton: String = "alert_button".localize(in: tableName, bundle: .main)
     }
 }

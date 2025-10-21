@@ -9,7 +9,6 @@ import SwiftUI
 
 // swiftlint:disable nesting
 extension Color {
-    public static let main: Color = Color("colorExample", bundle: .main)
     
     public static var random: Color {
         Color(

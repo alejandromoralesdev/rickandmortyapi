@@ -1,10 +1,3 @@
-//
-//  EpisodesHorizontalSection.swift
-//  RickAndMorty
-//
-//  Created by Alejandro Morales Cañete on 19/10/25.
-//
-
 import SwiftUI
 
 struct CharactersHorizontalSectionView: View {
@@ -22,9 +15,19 @@ struct CharactersHorizontalSectionView: View {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: Constants.Sizes.imageWidth), spacing: spacing)], spacing: spacing) {
                     ForEach(validCharacters, id: \.self) { character in
-                        // width no se fija: SwiftUI asignará el ancho. Ponemos height fijo para controlar aspecto.
-                        CharacterEpisodeSectionCardView(character: character, width: nil, height: Constants.Sizes.rowHeight)
-                            .frame(minHeight: Constants.Sizes.rowHeight)
+                        
+                        Button(action: {
+                            let generator = UIImpactFeedbackGenerator(style: .light)
+                            generator.impactOccurred()
+                            onCharacterTap?(character)
+                        }) {
+                            CharacterEpisodeSectionCardView(character: character, width: nil, height: Constants.Sizes.rowHeight)
+                                .frame(minHeight: Constants.Sizes.rowHeight)
+                        }
+                        .buttonStyle(.plain)
+                        .contentShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        .accessibilityLabel(Text("String(format: L10n.Episode.accessibilityLabel, ep)"))
+                        .padding(.vertical, 4)
                     }
                 }
             }
@@ -33,7 +36,6 @@ struct CharactersHorizontalSectionView: View {
         .padding(.horizontal, 0)
     }
 
-    // Extrae el identificador del episodio (último path component) o devuelve el texto limpio
     private var validCharacters: [String] {
         guard let characters else { return [] }
         

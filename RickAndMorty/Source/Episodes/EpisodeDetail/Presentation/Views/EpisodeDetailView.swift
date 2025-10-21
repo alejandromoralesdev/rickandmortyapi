@@ -1,10 +1,3 @@
-//
-//  EpisodeDetailView.swift
-//  RickAndMorty
-//
-//  Created by Alejandro Morales Cañete on 19/10/25.
-//
-
 import SwiftUI
 
 struct EpisodeDetailView: View {
@@ -20,14 +13,14 @@ struct EpisodeDetailView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            Text("L10n.Episode.title") // Asegúrate de tener esta clave en L10n
+            Text(L10n.Episodes.title)
                 .font(.title2)
                 .bold()
             Text(viewModel.episode.name ?? "")
                 .font(.body)
                 .foregroundColor(.secondary)
             
-            Text("Characters") // Asegúrate de tener esta clave en L10n
+            Text(L10n.Common.characters)
                 .font(.title2)
                 .bold()
             
@@ -36,20 +29,18 @@ struct EpisodeDetailView: View {
                 cardSize: Constants.Sizes.cardCharactersSize,
                 spacing: Constants.Sizes.episodesSpacing
             ) { chId in
-                // al tocar, asignamos la selección para navegar
                 selectedCharacter = chId
             }
             .padding(.top, 4)
-            
-//            ForEach(viewModel.episode.characters ?? ["hola"], id: \.self) { characterName in
-//                CharacterEpisodeSectionCardView(character: String(format: Constants.rickMortyApiImageBaseUrl, viewModel.getCharacterId(characterName)))
-//            }
         }
         .task {
             await viewModel.loadEpisode()
         }
         .padding()
-        .navigationTitle(String(format: "L10n.Episode.navTitle", viewModel.episodeId)) // opcional
+        .navigationTitle(viewModel.episode.name ?? "")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(item: $selectedCharacter) { characterId in
+            CharacterDetailView(character: nil, characterId: Int(characterId))
+        }
     }
 }

@@ -5,20 +5,17 @@ struct CharacterMoreInfoView: View {
     let value: String?
     var isLink: Bool = false
     
-    // Small pressed effect state (optional)
     @State private var isPressed: Bool = false
     @State private var showCopiedToast: Bool = false
     
     var body: some View {
         HStack(spacing: 12) {
-            // Left indicator: pequeño punto que refleja si hay valor o no
             Circle()
                 .fill(indicatorColor)
                 .frame(width: 10, height: 10)
                 .opacity(0.95)
             
             VStack(alignment: .leading, spacing: 2) {
-                // Label (small, less prominent)
                 Text(label.uppercased())
                     .font(.caption)
                     .fontWeight(.semibold)
@@ -26,7 +23,6 @@ struct CharacterMoreInfoView: View {
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
                 
-                // Value (más legible)
                 if !isLink {
                     Text(displayValue)
                         .font(.subheadline)
@@ -38,16 +34,14 @@ struct CharacterMoreInfoView: View {
             
             Spacer()
             
-            // Optional affordance: si hay valor, mostramos un pequeño botón para copiar
             if isLink {
                 Button(action: {
-                    // Optional: simple haptic feedback
                     if let value,
                        let url = URL(string: "https://\(value)") {
                         UIApplication.shared.open(url)
                     }
                 }) {
-                    Image(systemName: "safari")
+                    Image.CharacterDetail.safari
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(.blue)
                         .padding(8)
@@ -58,7 +52,7 @@ struct CharacterMoreInfoView: View {
             } else if let nonEmpty = value?.trimmingCharacters(in: .whitespacesAndNewlines), !nonEmpty.isEmpty {
                 Button(action: {
                     UIPasteboard.general.string = nonEmpty
-                    // Optional: simple haptic feedback
+                    
                     let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
                     withAnimation {
@@ -70,7 +64,7 @@ struct CharacterMoreInfoView: View {
                         }
                     }
                 }) {
-                    Image(systemName: "doc.on.doc")
+                    Image.CharacterDetail.copy
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(.blue)
                         .padding(8)
@@ -90,7 +84,7 @@ struct CharacterMoreInfoView: View {
         )
         .overlay(alignment: .topTrailing, content: {
             if showCopiedToast {
-                Text("Copiado")
+                Text(L10n.Common.coppied)
                     .font(.caption)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 6)
@@ -111,7 +105,6 @@ struct CharacterMoreInfoView: View {
                 isPressed = pressing
             }
         }, perform: {
-            // long press action: copy value (if present)
             if let nonEmpty = value?.trimmingCharacters(in: .whitespacesAndNewlines), !nonEmpty.isEmpty {
                 UIPasteboard.general.string = nonEmpty
                 let generator = UINotificationFeedbackGenerator()
@@ -140,11 +133,9 @@ struct CharacterMoreInfoView: View {
         }
     }
     
-    // Use .regularMaterial on iOS 15+, fallback to systemBackground
     @ViewBuilder
     private var backgroundView: some View {
         if #available(iOS 15.0, *) {
-            // regularMaterial respeta el modo oscuro y tiene buen resultado visual
             RoundedRectangle(cornerRadius: 12, style: .continuous)
                 .fill(.regularMaterial)
         } else {

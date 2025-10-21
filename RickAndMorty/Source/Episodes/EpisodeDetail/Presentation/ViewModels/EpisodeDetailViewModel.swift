@@ -5,7 +5,6 @@ class EpisodeDetailViewModel: ObservableObject {
     @Published var episode: EpisodeEntity = EpisodeEntity()
     @Published var isLoadingInitial: Bool = false
     @Published var isLoadingPage: Bool = false
-//    @Published var navigateToDetail: Bool = false
     @Published var errorMessage: String? = nil
     @Published var showError: Bool = false
     @Published var episodeId: Int
@@ -17,7 +16,6 @@ class EpisodeDetailViewModel: ObservableObject {
         self.getEpisodeDetailUseCase = getEpisodeDetailUseCase
     }
 
-    // Carga inicial (primera página)
     func loadEpisode() async {
         isLoadingInitial = true
         errorMessage = nil
@@ -36,7 +34,6 @@ class EpisodeDetailViewModel: ObservableObject {
         return chString
     }
 
-    // Petición de página y manejo de respuesta / errores
     private func fetchEpisode(episode: Int) async {
         guard !isLoadingPage else { return }
         isLoadingPage = true
