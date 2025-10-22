@@ -76,4 +76,21 @@ class Utils {
             return chString.trimmingCharacters(in: .whitespacesAndNewlines)
         }
     }
+    
+    public static func extractId(from url: URL?) -> String? {
+        guard let url else { return nil }
+        return url.lastPathComponent.isEmpty ? nil : url.lastPathComponent
+    }
+    
+    public static func originLocationId(from urlString: String?) -> Int? {
+        guard
+            let urlString = urlString,
+            let url = URL(string: urlString),
+            let idString = Utils.extractId(from: url),
+            let id = Int(idString)
+        else {
+            return nil
+        }
+        return id
+    }
 }
