@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CharactersHorizontalSectionView: View {
+struct CharactersVerticalSectionView: View {
     let characters: [String]?
     let cardSize: CGFloat
     let spacing: CGFloat
@@ -14,7 +14,7 @@ struct CharactersHorizontalSectionView: View {
         VStack(spacing: 8) {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: Constants.Sizes.imageWidth), spacing: spacing)], spacing: spacing) {
-                    ForEach(validCharacters, id: \.self) { character in
+                    ForEach(Utils.validCharacters(characters), id: \.self) { character in
                         
                         Button(action: {
                             let generator = UIImpactFeedbackGenerator(style: .light)
@@ -33,16 +33,5 @@ struct CharactersHorizontalSectionView: View {
             
         }
         .padding(.horizontal, 0)
-    }
-
-    private var validCharacters: [String] {
-        guard let characters else { return [] }
-        
-        return characters.compactMap { $0 }.map { chString in
-            if let url = URL(string: chString), !url.lastPathComponent.isEmpty {
-                return url.lastPathComponent
-            }
-            return chString.trimmingCharacters(in: .whitespacesAndNewlines)
-        }
     }
 }

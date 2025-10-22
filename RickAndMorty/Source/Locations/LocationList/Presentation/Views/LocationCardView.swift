@@ -49,11 +49,50 @@ struct LocationCardView: View {
                     Text(L10n.Locations.residents)
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text("\(location.residents?.count ?? 0) \(L10n.Locations.residents)")
-                        .font(.caption2)
-                        .foregroundColor(.primary)
-                        .lineLimit(1)
+                    
+                    Spacer()
+                    
+                    ScrollView (.horizontal) {
+                        HStack {
+                            ForEach(Utils.validCharacters(location.residents), id: \.self) { character in
+                                
+                                AsyncImage(url: Constants.Endpoints.getImageURL(id: character)) { phase in
+                                    Group {
+                                        switch phase {
+                                        case .empty:
+                                            ZStack {
+                                                Color(white: 0.95)
+                                                ProgressView()
+                                            }
+                                        case .success(let image):
+                                            image
+                                                .resizable()
+                                                .scaledToFill()
+                                        case .failure:
+                                            ZStack {
+                                                Color(white: 0.95)
+                                                Image.Errors.noPhoto
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .foregroundColor(.gray)
+                                                    .padding(40 * 0.1)
+                                            }
+                                        @unknown default:
+                                            EmptyView()
+                                        }
+                                    }
+                                    .frame(width: 40, height: 40)
+                                    .background(Color.clear)
+                                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                                    .compositingGroup()
+                                    .shadow(color: Color.black.opacity(0.12), radius: 6, x: 0, y: 2)
+                                }
+                            }
+                        }
+                    }
                 }
+                .padding(.trailing, 5)
+                
                 
                 Spacer()
             }
