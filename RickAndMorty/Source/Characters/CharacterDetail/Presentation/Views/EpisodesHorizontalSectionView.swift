@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct EpisodesHorizontalSectionView: View {
-    let episodes: [String?]
+    let episodes: [String]?
     let cardSize: CGSize
     let spacing: CGFloat
     var onEpisodeTap: ((String) -> Void)? = nil
@@ -13,13 +13,13 @@ struct EpisodesHorizontalSectionView: View {
                     .font(.title2)
                     .bold()
                 Spacer()
-                Text("\(validEpisodes.count)")
+                Text("\(Utils.validIds(episodes).count)")
                     .font(.subheadline)
                     .foregroundColor(.primary)
             }
             .padding(.horizontal)
 
-            if validEpisodes.isEmpty {
+            if Utils.validIds(episodes).isEmpty {
                 HStack {
                     Spacer()
                     VStack(spacing: 6) {
@@ -36,7 +36,7 @@ struct EpisodesHorizontalSectionView: View {
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: spacing) {
-                        ForEach(Array(validEpisodes.enumerated()), id: \.offset) { index, ep in
+                        ForEach(Utils.validIds(episodes), id: \.self) { ep in
                             Button(action: {
                                 let generator = UIImpactFeedbackGenerator(style: .light)
                                 generator.impactOccurred()
@@ -56,15 +56,5 @@ struct EpisodesHorizontalSectionView: View {
             }
         }
         .padding(.vertical, 4)
-    }
-    
-    private var validEpisodes: [String] {
-        episodes.compactMap { $0 }.map { epString in
-            let trimmed = epString.trimmingCharacters(in: .whitespacesAndNewlines)
-            if let url = URL(string: trimmed), !url.lastPathComponent.isEmpty {
-                return url.lastPathComponent
-            }
-            return trimmed
-        }
     }
 }

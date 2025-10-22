@@ -82,6 +82,9 @@ struct ContentView: View {
             .navigationDestination(for: EpisodeEntity.self) { episode in
                 EpisodeDetailView(episodeId: episode.id, episode: episode)
             }
+            .navigationDestination(for: LocationEntity.self) { location in
+                LocationDetailView(locationId: location.id, location: location)
+            }
         }
     }
 }

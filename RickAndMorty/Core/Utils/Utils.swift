@@ -65,4 +65,15 @@ class Utils {
             return LinearGradient(colors: [Color.blue.opacity(0.96), Color.purple.opacity(0.86)], startPoint: .topLeading, endPoint: .bottomTrailing)
         }
     }
+    
+    public static func validIds(_ ids: [String]?) -> [String] {
+        guard let ids else { return [] }
+        
+        return ids.compactMap { $0 }.map { chString in
+            if let url = URL(string: chString), !url.lastPathComponent.isEmpty {
+                return url.lastPathComponent
+            }
+            return chString.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+    }
 }

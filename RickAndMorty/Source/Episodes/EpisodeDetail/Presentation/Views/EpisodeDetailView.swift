@@ -16,18 +16,13 @@ struct EpisodeDetailView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            Text(L10n.Episodes.title)
-                .font(.title2)
-                .bold()
-            Text(viewModel.episode?.name ?? "")
-                .font(.body)
-                .foregroundColor(.secondary)
+            EpisodeHeaderView(episode: viewModel.episode)
             
             Text(L10n.Common.characters)
                 .font(.title2)
                 .bold()
             
-            CharactersHorizontalSectionView(
+            CharactersVerticalSectionView(
                 characters: viewModel.episode?.characters,
                 cardSize: Constants.Sizes.cardCharactersSize,
                 spacing: Constants.Sizes.episodesSpacing
