@@ -54,7 +54,7 @@ struct LocationCardView: View {
                     
                     ScrollView (.horizontal) {
                         HStack {
-                            ForEach(Utils.validCharacters(location.residents), id: \.self) { character in
+                            ForEach(Utils.validIds(location.residents), id: \.self) { character in
                                 
                                 AsyncImage(url: Constants.Endpoints.getImageURL(id: character)) { phase in
                                     Group {

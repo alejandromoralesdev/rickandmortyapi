@@ -66,10 +66,10 @@ class Utils {
         }
     }
     
-    public static func validCharacters(_ characters: [String]?) -> [String] {
-        guard let characters else { return [] }
+    public static func validIds(_ ids: [String]?) -> [String] {
+        guard let ids else { return [] }
         
-        return characters.compactMap { $0 }.map { chString in
+        return ids.compactMap { $0 }.map { chString in
             if let url = URL(string: chString), !url.lastPathComponent.isEmpty {
                 return url.lastPathComponent
             }

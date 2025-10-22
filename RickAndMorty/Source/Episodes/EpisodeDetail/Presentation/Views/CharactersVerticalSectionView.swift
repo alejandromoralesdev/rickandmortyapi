@@ -14,7 +14,7 @@ struct CharactersVerticalSectionView: View {
         VStack(spacing: 8) {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: Constants.Sizes.imageWidth), spacing: spacing)], spacing: spacing) {
-                    ForEach(Utils.validCharacters(characters), id: \.self) { character in
+                    ForEach(Utils.validIds(characters), id: \.self) { character in
                         
                         Button(action: {
                             let generator = UIImpactFeedbackGenerator(style: .light)
