@@ -3,6 +3,7 @@ import SwiftUI
 enum Destination: Hashable {
     case characters
     case episodes
+    case locations
 }
 
 struct ContentView: View {
@@ -49,6 +50,16 @@ struct ContentView: View {
                         ) {
                             path.append(Destination.episodes)
                         }
+                        
+                        FancyButton(
+                            title: L10n.Common.allLocations,
+                            subtitle: nil,
+                            systemIcon: Image.InitialScreen.allLocations,
+                            gradient: LinearGradient(colors: [Color.yellow, Color.orange],
+                                                     startPoint: .topLeading, endPoint: .bottomTrailing)
+                        ) {
+                            path.append(Destination.locations)
+                        }
                     }.padding(.horizontal, 30)
                     
                     Spacer()
@@ -61,6 +72,8 @@ struct ContentView: View {
                     CharacterListView(path: $path)
                 case .episodes:
                     EpisodeListView(path: $path)
+                case .locations:
+                    LocationListView(path: $path)
                 }
             }
             .navigationDestination(for: CharacterEntity.self) { character in

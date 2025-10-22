@@ -5,6 +5,7 @@
 "episodes" = "Episodios";
 "characterList" = "Todos los personajes";
 "episodeList" = "Todos los episodios";
+"locationList" = "Todos los planetas";
 "welcome" = "Bienvenido";
 "choose" = "Elige una opción";
 
@@ -30,6 +31,16 @@
 "title_ep" = "Episodio";
 "no_episode" = "Episodio Desconocido";
 "air_date" = "Fecha de emisión";
+
+// Locations
+"title_loc" = "Planetas";
+"dimenson_loc" = "Dimensión";
+"type_loc" = "Tipo";
+"residents_loc" = "Residentes";
+"no_name_loc" = "Desconocido";
+"no_dimension_loc" = "Desconocido";
+"no_type_loc" = "Desconocido";
+"no_residents_loc" = "Desconocido";
 
 
 // Errors

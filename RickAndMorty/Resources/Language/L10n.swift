@@ -20,6 +20,8 @@ public enum L10n {
         public static let allCharacters: String = "characterList".localize(in: tableName, bundle: .main)
         /// All Episodes
         public static let allEpisodes: String = "episodeList".localize(in: tableName, bundle: .main)
+        /// All Locations
+        public static let allLocations: String = "locationList".localize(in: tableName, bundle: .main)
         /// Welcome
         public static let welcome: String = "welcome".localize(in: tableName, bundle: .main)
         /// Choose an option
@@ -66,6 +68,25 @@ public enum L10n {
         public static let airDate: String = "air_date".localize(in: tableName, bundle: .main)
         /// Unknown Episode
         public static let unknownEpisode: String = "no_episode".localize(in: tableName, bundle: .main)
+    }
+    
+    public enum Locations {
+        /// Planet Name
+        public static let title: String = "title_loc".localize(in: tableName, bundle: .main)
+        /// Planet Type
+        public static let type: String = "type_loc".localize(in: tableName, bundle: .main)
+        /// Planet Dimension
+        public static let dimension: String = "dimenson_loc".localize(in: tableName, bundle: .main)
+        /// Planet's Residents
+        public static let residents: String = "residents_loc".localize(in: tableName, bundle: .main)
+        /// Unknown Planet Name
+        public static let unknownName: String = "no_name_loc".localize(in: tableName, bundle: .main)
+        /// Unknown Planet Type
+        public static let unknownType: String = "no_type_loc".localize(in: tableName, bundle: .main)
+        /// Unknown Planet Dimension
+        public static let unknownDimension: String = "no_dimension_loc".localize(in: tableName, bundle: .main)
+        /// Unknown Planet's Residents
+        public static let unknownResidents: String = "no_residents_loc".localize(in: tableName, bundle: .main)
     }
     
     public enum Errors {
