@@ -5,6 +5,7 @@
 "episodes" = "Episodes";
 "characterList" = "All Characterss";
 "episodeList" = "All Episodes";
+"locationList" = "All Planets";
 "welcome" = "Welcome";
 "choose" = "Choose an option";
 
@@ -30,6 +31,16 @@
 "title_ep" = "Episode";
 "no_episode" = "Unknown Episode";
 "air_date" = "Air Date";
+
+// Locations
+"title_loc" = "Planets";
+"dimenson_loc" = "Dimension";
+"type_loc" = "Type";
+"residents_loc" = "Residents";
+"no_name_loc" = "Unknown";
+"no_dimension_loc" = "Unknown";
+"no_type_loc" = "Unknown";
+"no_residents_loc" = "Unknown";
 
 // Errors
 "general_error_message" = "An error has ocurred";

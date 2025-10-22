@@ -4,6 +4,7 @@ extension Image {
     public enum InitialScreen {
         public static let allCharacters = Image(systemName: "person.3")
         public static let allEpisodes = Image(systemName: "film.stack")
+        public static let allLocations = Image(systemName: "globe.europe.africa")
     }
     public enum CharacterDetail {
         public static let copy = Image(systemName: "doc.on.doc")
